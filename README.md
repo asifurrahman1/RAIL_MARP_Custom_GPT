@@ -341,11 +341,11 @@ You should see a JSON response with reply and backend_used.
 
 Under Capabilities tab do
 
-Web browsing: OFF (closed RAIL/HRE-style environment)
+- Web browsing: OFF (closed RAIL/HRE-style environment)
 
-Code Interpreter: optional (not required)
+- Code Interpreter: optional (not required)
 
-Image generation: optional
+- Image generation: optional
 
 Click Save to save the GPT.
 
