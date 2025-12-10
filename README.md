@@ -388,7 +388,8 @@ Re-import the OpenAPI file into the GPT if needed.
 
 These prompts test the three RAIL-MARP routing scenarios described in the protocol.
 
-6.1 Scenario 1 – Regulated Knowledge Only
+6.1 Scenario 1 – (Regulated Knowledge Only): Paste the following query
+```bash
 SCENARIO 1
 ROLE: planner
 CLEARANCE: secret
@@ -398,8 +399,7 @@ or above the required level through quarter four under current dock capacity,
 crew readiness, and spares constraints, and within the approved budget? Return
 the top two feasible transition calendars with uncertainty bands, key
 bottlenecks, and any policy flags.
-
-
+```
 Expected:
 
 Uses only marp_regulated_knowledge.json.
@@ -408,10 +408,8 @@ Does not consult marp_governed_data_view.csv.
 
 Provenance stub: governed_data empty or omitted.
 
-6.2 Scenario 2 – Regulated Knowledge + LLM Explanation
-
-Base query:
-
+6.2 Scenario 2 – (Regulated Knowledge + LLM Explanation) query:
+```bash
 SCENARIO 2
 ROLE: planner
 CLEARANCE: secret
@@ -421,19 +419,7 @@ or above the required level through quarter four under current dock capacity,
 crew readiness, and spares constraints, and within the approved budget? Return
 the top two feasible transition calendars with uncertainty bands, key
 bottlenecks, and any policy flags.
-
-
-Follow-up explanation:
-
-SCENARIO 2
-ROLE: planner
-CLEARANCE: secret
-
-Explain the trade-offs between Transition Calendar A and Transition Calendar B.
-Focus on the uncertainty bands, dock and crew bottlenecks, and policy
-implications. Do not introduce any new numerical values beyond those already
-encoded in the regulated knowledge file.
-
+```
 
 Expected:
 
@@ -442,25 +428,19 @@ Answers grounded in marp_regulated_knowledge.json.
 Second answer is more narrative; external LLM may be invoked via llmRoute,
 but no new numbers are invented.
 
-6.3 Scenario 3 – Regulated Knowledge + Governed Data + LLM Reasoning
+6.3 Scenario 3 – (Regulated Knowledge + Governed Data + LLM Reasoning) query:
+```bash
 SCENARIO 3
 ROLE: planner
 CLEARANCE: secret
 
 Given a plan to retire two boats in quarter three, can weekly capability stay at
 or above the required level through quarter four under current dock capacity,
-crew readiness, and spares constraints, and within the approved budget?
+crew readiness, and spares constraints, and within the approved budget? Return
+the top two feasible transition calendars with uncertainty bands, key
+bottlenecks, and any policy flags.?
 
-This time, please:
-- Use both the precomputed Transition Calendars A and B and the governed data
-  view.
-- Summarise the weekly capability curves and budget utilisation patterns for
-  each calendar (you can aggregate weeks if needed).
-- Highlight which weeks come closest to the capability threshold and where dock
-  utilisation or budget usage is most critical.
-- Return the top two feasible transition calendars with uncertainty bands, key
-  bottlenecks, policy flags, and the requested capability/budget patterns.
-
+```
 
 Expected:
 
