@@ -438,7 +438,7 @@ Given a plan to retire two boats in quarter three, can weekly capability stay at
 or above the required level through quarter four under current dock capacity,
 crew readiness, and spares constraints, and within the approved budget? Return
 the top two feasible transition calendars with uncertainty bands, key
-bottlenecks, and any policy flags.?
+bottlenecks, and any policy flags.
 
 ```
 
