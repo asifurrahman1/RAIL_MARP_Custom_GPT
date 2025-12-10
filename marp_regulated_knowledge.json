@@ -1,0 +1,53 @@
+{
+  "scenario": "MARP fleet transition – retire two boats in Q3",
+  "base_query": "Given a plan to retire two boats in quarter three, can weekly capability stay at or above the required level through quarter four under current dock capacity, crew readiness, and spares constraints, and within the approved budget?",
+  "capability_threshold": {
+    "metric": "weekly_effective_capability_index",
+    "required_min": 0.80,
+    "period": "Q3-Q4"
+  },
+  "constraints": {
+    "dock_capacity": "At most two boats in dock at any week.",
+    "crew_readiness": "Minimum crew readiness index 0.75 for deployed boats.",
+    "spares": "Spares deliveries constrained in weeks 5–8.",
+    "budget_envelope": "Total transition budget capped at 100 units across Q3–Q4."
+  },
+  "transition_calendars": [
+    {
+      "id": "A",
+      "label": "Calendar A – staggered retirement",
+      "description": "Retire one boat early in Q3 and the second at the start of Q4; refit replacements in the gaps.",
+      "qualitative_capability_profile": "Capability remains above the threshold for most weeks with a short dip near the start of Q4 that quickly recovers.",
+      "uncertainty_band": "±5 percentage points on the capability index.",
+      "bottlenecks": [
+        "High dock utilisation during late Q3.",
+        "Crew training backlog in mid-Q3.",
+        "Tight spares margin in Q4 week 2."
+      ],
+      "policy_flags": [
+        "Requires overtime waiver for dock workers in late Q3.",
+        "Requires export control review for spares package SP-17."
+      ]
+    },
+    {
+      "id": "B",
+      "label": "Calendar B – clustered retirement",
+      "description": "Retire both boats late in Q3 with overlapping dock periods and compress refits into Q4.",
+      "qualitative_capability_profile": "Capability approaches the threshold around the Q3–Q4 boundary and shows more volatility.",
+      "uncertainty_band": "±8 percentage points on the capability index.",
+      "bottlenecks": [
+        "Severe dock congestion in late Q3.",
+        "Crew availability risk due to concurrent retraining.",
+        "Higher risk of spares stock-out in early Q4."
+      ],
+      "policy_flags": [
+        "Requires extended overtime approvals for docks and crews.",
+        "Triggers budget variance review due to front-loaded costs."
+      ]
+    }
+  ],
+  "notes": [
+    "Calendars A and B are precomputed and must be treated as authoritative.",
+    "Capability thresholds and envelopes are synthetic and for demonstration only."
+  ]
+}

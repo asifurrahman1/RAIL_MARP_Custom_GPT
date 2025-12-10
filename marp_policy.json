@@ -1,0 +1,49 @@
+{
+  "description": "Simplified MARP policy-as-code configuration for the BRIDGE proof of concept.",
+  "roles": {
+    "planner": {
+      "allowed_clearances": ["secret", "top_secret"],
+      "allowed_domains": [
+        "capability_planning",
+        "transition_calendars",
+        "budget_envelopes"
+      ],
+      "qualitative_restrictions": [
+        "no_unit_level_identifiers",
+        "no_vendor_level_cost_breakdowns"
+      ],
+      "default_decision": "ALLOW"
+    },
+    "guest": {
+      "allowed_clearances": ["unclassified"],
+      "allowed_domains": ["marp_high_level_summaries"],
+      "qualitative_restrictions": [
+        "no_numerical_capability_values",
+        "no_explicit_dates",
+        "no_detailed_budget_or_calendar_structures"
+      ],
+      "default_decision": "PARTIAL"
+    },
+    "auditor": {
+      "allowed_clearances": ["secret", "top_secret"],
+      "allowed_domains": [
+        "capability_planning",
+        "transition_calendars",
+        "budget_envelopes",
+        "marp_provenance_views"
+      ],
+      "qualitative_restrictions": [
+        "no_unit_level_identifiers",
+        "no_vendor_level_cost_breakdowns",
+        "read_only_observer_role"
+      ],
+      "default_decision": "ALLOW"
+    }
+  },
+  "evaluation_rules": [
+    "If role is not in roles => DENY.",
+    "If clearance not in roles[role].allowed_clearances => DENY.",
+    "If query domain outside roles[role].allowed_domains => PARTIAL.",
+    "Else => roles[role].default_decision."
+  ]
+}
