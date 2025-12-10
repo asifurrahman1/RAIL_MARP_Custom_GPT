@@ -114,9 +114,7 @@ All next steps are done in the ChatGPT web UI.
 
 - Go to the Configure tab.
 
-- Set
-  -- Name: RAIL-MARP-GPT
-  -- Description: Governance-aware MARP assistant that follows the RAIL protocol and can route some reasoning to local LLMs.
+- Set the Name and Description
 
 #### 3.2 Paste the Instructions
 
