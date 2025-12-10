@@ -17,7 +17,7 @@ A Custom GPT Action that routes some reasoning subtasks to local LLMs (Mistral /
 No OpenAI fine-tuning is required. You only need a ChatGPT account that supports Custom GPTs.
 
 ## 📂  Repository Structure
-RAIL-MARP-GPT/
+```
 ├── knowledge/
 │   ├── marp_policy.json               # Policy-as-code: roles, clearances, domains, decisions
 │   ├── marp_governance_knowledge.md   # Governance explanations & rationales
@@ -27,7 +27,7 @@ RAIL-MARP-GPT/
 ├── adapter/
 │   ├── main.py                        # FastAPI → Ollama adapter (POST /llm_route)
 └── README.md
-
+```
 You do not need to modify the knowledge files to run the proof-of-concept.
 You only need to:
 - Run the adapter and expose it with ngrok.
@@ -99,14 +99,14 @@ You will see an HTTPS URL such as:
 ```bash
 https://YOUR_ID.ngrok-free.app
 ```
-Copy this URL. **You will reference it in the OpenAPI spec.** in step 4.4
+Copy this URL. **You will reference it in the OpenAPI spec.** in step 3.4
 
 
 ## Step 3 – Create and Configure the Custom GPT (RAIL-MARP-GPT)
 
 All next steps are done in the ChatGPT web UI.
 
-4.1 Open the Custom GPT Builder
+#### 3.1 Open the Custom GPT Builder
 
 Open ChatGPT in your browser.
 
@@ -121,7 +121,7 @@ Name: RAIL-MARP-GPT
 Description:
 Governance-aware MARP assistant that follows the RAIL protocol and can route some reasoning to local LLMs.
 
-4.2 Paste the Instructions
+#### 3.2 Paste the Instructions
 
 In the Instructions field, paste the following instruction:
 ```bash
@@ -234,7 +234,7 @@ labelled "provenance_stub" containing compact JSON with at least:
 
 You can adjust wording as long as the core behaviour is preserved.
 
-4.3 Upload Knowledge Files
+#### 3.3 Upload Knowledge Files
 
 Still in the Configure tab, under Knowledge:
 
@@ -254,7 +254,7 @@ rail_protocol.md
 
 Ensure each file is enabled.
 
-4.4 Define the Action in Custom GPT (OpenAPI)
+#### 3.4 Define the Action in Custom GPT (OpenAPI)
 
 Under Actions:
 
@@ -347,7 +347,7 @@ Use the built-in test:
 
 You should see a JSON response with reply and backend_used.
 
-4.5 Define Capabilities
+#### 3.5 Define Capabilities
 
 Under Capabilities tab do
 
@@ -359,7 +359,7 @@ Image generation: optional
 
 Click Save to save the GPT.
 
-### ✅ Step 5 – Quick Connectivity Test in a Chat
+### ✅ Step 4 – Quick Connectivity Test in a Chat
 
 Open a new chat with RAIL-MARP-GPT and send:
 
@@ -394,7 +394,7 @@ Re-import the OpenAPI file into the GPT if needed.
 
 ---
 
-### 🚀 MARP Scenario Experiments
+# 🚀 MARP Scenario Experiments
 
 These prompts test the three RAIL-MARP routing scenarios described in the protocol.
 
