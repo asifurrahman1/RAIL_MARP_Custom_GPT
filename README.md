@@ -69,7 +69,6 @@ ngrok config add-authtoken YOUR_NGROK_AUTH_TOKEN
 # ⚙️ Setup Guide
 ## Step 1 – Run the RAIL LLM Adapter (FastAPI + Ollama)
 1.1 Install Python Dependencies
-From the repo root:
 ```bash
 cd adapter
 pip install fastapi uvicorn requests
