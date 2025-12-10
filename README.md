@@ -108,17 +108,17 @@ All next steps are done in the ChatGPT web UI.
 
 #### 3.1 Open the Custom GPT Builder
 
-Open ChatGPT in your browser.
+- Open ChatGPT in your browser.
 
-Click Explore → Create a GPT.
+- Click Explore → Create a GPT.
 
-Go to the Configure tab.
+- Go to the Configure tab.
 
-Set:
+- Set:
 
 Name: RAIL-MARP-GPT
 
-Description:
+- Description:
 Governance-aware MARP assistant that follows the RAIL protocol and can route some reasoning to local LLMs.
 
 #### 3.2 Paste the Instructions
@@ -236,31 +236,21 @@ You can adjust wording as long as the core behaviour is preserved.
 
 #### 3.3 Upload Knowledge Files
 
-Still in the Configure tab, under Knowledge:
+In the Configure tab, under Knowledge upload the following given files from knowledge/.
 
-Click Upload files.
-
-Upload all files from knowledge/:
-
-marp_policy.json
-
-marp_governance_knowledge.md
-
-marp_regulated_knowledge.json
-
-marp_governed_data_view.csv
-
-rail_protocol.md
-
+```
+├── knowledge/
+│   ├── marp_policy.json               # Policy-as-code: roles, clearances, domains, decisions
+│   ├── marp_governance_knowledge.md   # Governance explanations & rationales
+│   ├── marp_regulated_knowledge.json  # MARP calendars, thresholds, bottlenecks, flags
+│   ├── marp_governed_data_view.csv    # Weekly synthetic capability/budget data
+│   └── rail_protocol.md               # RAIL protocol (governance, routing, provenance)
+```
 Ensure each file is enabled.
 
 #### 3.4 Define the Action in Custom GPT (OpenAPI)
 
-Under Actions:
-
-Click Add actions.
-
-Paste the following and within the instruction replace **https://YOUR_ID.ngrok-free.app** with your actual ngork URL 
+In the configuration tab click Add actions and then paste the following and within the instruction replace **https://YOUR_ID.ngrok-free.app** with your actual ngork URL 
 ```bash
 {
   "openapi": "5.1.0",
