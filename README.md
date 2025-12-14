@@ -1,7 +1,8 @@
 # RAIL-MARP-GPT: Governance-Aware Custom GPT for MARP
 
 This repository contains the configuration and supporting code for RAIL-MARP-GPT,
-a Custom GPT that emulates a governance-aware orchestration architecture (RAIL)
+a Custom GPT that emulates Regulation Aware Integration of
+Large Language Models (RAIL)
 for a Military Asset & Resource Planning (MARP) fleet transition case study.
 
 RAIL-MARP-GPT is built entirely from:
