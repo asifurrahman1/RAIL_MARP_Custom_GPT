@@ -7,13 +7,13 @@ for a Military Asset & Resource Planning (MARP) fleet transition case study.
 
 RAIL-MARP-GPT is built entirely from:
 
-Natural-language Instructions in the Custom GPT builder
+- Natural-language Instructions in the Custom GPT builder
 
-Uploaded knowledge artifacts (policy, governance corpus, regulated knowledge, governed data)
+- Uploaded knowledge artifacts (policy, governance corpus, regulated knowledge, governed data)
 
-A RAIL protocol file (rail_protocol.md)
+- A RAIL protocol file (rail_protocol.md)
 
-A Custom GPT Action that routes some reasoning subtasks to local LLMs (Mistral / Llama 3.1 via Ollama) using a FastAPI adapter and an HTTPS ngrok tunnel
+- A Custom GPT Action that routes some reasoning subtasks to local LLMs (Mistral / Llama 3.1 via Ollama) using a FastAPI adapter and an HTTPS ngrok tunnel
 
 No OpenAI fine-tuning is required. You only need a ChatGPT account that supports Custom GPTs.
 
